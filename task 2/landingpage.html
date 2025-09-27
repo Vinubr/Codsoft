@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletter Landing Page</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ff6a00;
+      --secondary: #ee0979;
+      --accent: #00c9ff;
+      --dark: #222;
+      --light: #f9f9f9;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    header h2 {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a:hover {
+      color: yellow;
+      transform: scale(1.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin: 0;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin: 20px 0;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    /* Newsletter Form */
+    .newsletter {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .input-box {
+      position: relative;
+      width: 280px;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 14px 12px;
+      border: none;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+
+    .input-box input::placeholder {
+      color: #f1f1f1;
+    }
+
+    .input-box input:focus {
+      background: rgba(255,255,255,0.3);
+      box-shadow: 0 0 15px var(--accent);
+      transform: scale(1.05);
+    }
+
+    .newsletter button {
+      padding: 14px 30px;
+      border: none;
+      border-radius: 30px;
+      background: white;
+      color: var(--secondary);
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .newsletter button:hover {
+      background: var(--accent);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    /* About Section */
+    .about {
+      padding: 70px 40px;
+      text-align: center;
+      background: white;
+    }
+
+    .about h2 {
+      color: var(--secondary);
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    /* Skills Section */
+    .skills {
+      background: linear-gradient(135deg, #f4f4f4, #e1f5fe);
+      padding: 70px 40px;
+      text-align: center;
+    }
+
+    .skills h2 {
+      color: var(--primary);
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .skill {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .skill h3 {
+      color: var(--secondary);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h2>MyNewsletter</h2>
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#signup">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero + Newsletter -->
+  <section class="hero" id="signup">
+    <h1>Join My Newsletter 🚀</h1>
+    <p>Get inspiring stories, tips, and updates straight to your inbox.</p>
+    <div class="newsletter">
+      <div class="input-box">
+        <input type="email" placeholder="Enter your email" required>
+      </div>
+      <button>Subscribe</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi! I'm <strong>Vinutha BR</strong>, a passionate developer and an optimist.  
+      This is the landing page for my newsletter where I share my knowledge on  
+      <strong>web development, design, and personal growth</strong>.  
+      You’ll also find stories from my subscribers’ journeys that inspire growth and fun.  
+      Sign up and be part of this vibrant community! 🌟
+    </p>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-grid">
+      <div class="skill"><h3>💻 Web Development</h3><p>Building responsive and modern websites.</p></div>
+      <div class="skill"><h3>🎨 Design</h3><p>Creating visually appealing and user-friendly layouts.</p></div>
+      <div class="skill"><h3>✍ Writing</h3><p>Sharing tutorials, blogs, and insightful content.</p></div>
+      <div class="skill"><h3>🚀 Growth</h3><p>Helping others learn and improve daily.</p></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MyNewsletter. All rights reserved.</p>
+    <p>Made with ❤️ by Vinutha BR</p>
+  </footer>
+
+</body>
+</html>
